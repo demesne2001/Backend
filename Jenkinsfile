@@ -17,12 +17,12 @@ pipeline {
                 
                 script{
                     def a=0
-                    bat 'docker build . -f dockerfile.txt -t  WebReportBack'
+                    bat 'docker build . -f dockerfile.txt -t  webreportback'
                     a=1
                     if(a>0)
                     {
-                         bat 'docker stop WebReportBack'
-                         bat 'docker rm WebReportBack'
+                         bat 'docker stop  webreportback'
+                         bat 'docker rm  webreportback'
                     }
                 }
                 echo 'Docker Image done'
@@ -31,7 +31,7 @@ pipeline {
         stage('Docker Run') {
             steps {
                 script{
-                    bat 'docker run -p 7000:7000 -d --name WebReportBack WebReportBack'
+                    bat 'docker run -p 7000:7000 -d --name  webreportback  webreportback'
                 }
                 echo 'Docker Running'
             }
