@@ -13,7 +13,7 @@ password=config("DBPass")
 print(server)
 version='18'
 WRconnection = (
-    f'DRIVER=DRIVER=ODBC Driver 17 for SQL Server;SERVER={server};DATABASE={database};UID={username};PWD={password};TrustServerCertificate=yes;Encrypt=no;Connection Timeout=30;')
+    f'DRIVER=DRIVER=ODBC Driver 18 for SQL Server;SERVER={server};DATABASE={database};UID={username};PWD={password};TrustServerCertificate=yes;Encrypt=no;Connection Timeout=30;')
 
 
 
