@@ -12,9 +12,12 @@ password=config("DBPass")
 # server=os.environ['dbconnection']
 print(server)
 version='18'
-WRconnection = (
-    f'DRIVER=DRIVER=ODBC Driver 18 for SQL Server;SERVER={server};DATABASE={database};UID={username};PWD={password};')
+# WRconnection = (
+#     f'DRIVER=DRIVER=ODBC Driver 18 for SQL Server;SERVER={server};DATABASE={database};UID={username};PWD={password};')
 
+
+WRconnection = (
+    f'DRIVER=ODBC Driver 18 for SQL Server;SERVER={server};DATABASE={database};UID={username};PWD={password};TrustServerCertificate=yes;Encrypt=no;Connection Timeout=30;')
 
 
 def Commandparam(input):
