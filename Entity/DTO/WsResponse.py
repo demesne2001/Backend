@@ -1,0 +1,17 @@
+from pydantic import BaseModel,Field
+
+class CommonInput:
+    def __init__(self):
+        self.Message = []
+        self.HasError = False
+
+class LoginResult:
+    acsesstoken:str
+    Error:str
+
+class FilterResult(CommonInput):
+    def __init__(self):
+        super().__init__()
+        self.lstResult:[]
+
+    
