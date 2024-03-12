@@ -25,6 +25,7 @@ def GetItemName(input:FilterInput):
     try:
         result.lstResult=FilterSQL.GetItemName(input)
     except  Exception as E:
+        print(E)
         result.HasError=True
         result.Message.append(E)
     return result
@@ -115,6 +116,7 @@ def Getcompany(input:FilterInput):
     try:        
         result.lstResult=FilterSQL.Getcompany(input)       
     except  Exception as E:
+        print(E)
         result.HasError=True
         result.Message.append(E)
     return result
