@@ -6,6 +6,8 @@ from DAL import DBConfig
 def Getcompany(input:FilterInput):
     key_value_pairs=[]
     param=''
+    drivers = [item for item in pyodbc.drivers()]
+    print('driver',drivers)
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()  
