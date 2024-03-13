@@ -14,4 +14,13 @@ class FilterResult(CommonInput):
         super().__init__()
         self.lstResult:[]
 
+class CardResult(CommonInput):
+    def __init__(self):
+        super().__init__()
+        self.lstResult:[]
+        
+class ChartResult(CommonInput):
+    def __init__(self):
+        super().__init__()
+        self.lstResult:[]
     

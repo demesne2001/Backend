@@ -1,7 +1,7 @@
 from fastapi import APIRouter,Body,Depends
 from Entity.DTO.WsInput import FilterInput
 from Service import FilterService
-from Entity .DTO.WsInput import FilterInput
+
 Filter=APIRouter()
 
 @Filter.post('/GetCompany')

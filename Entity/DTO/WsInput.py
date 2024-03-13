@@ -16,3 +16,20 @@ class FilterInput(BaseModel):
     PageNo:int
     strItemID:str
     strDesignID:str
+    
+    
+class CardandChartInput(BaseModel):
+    ChartValueOption:str
+    strCompanyID:str
+    strBranchID:str
+    FromDate:str
+    ToDate:str
+    strDepartmentID:str
+    strBrandID:str
+    strProductID:str
+    strItemGroupID:str
+    strItemID:str
+    strColorID:str
+    strSeasonID:str
+    strSalesmanID:str
+    strDesignID:str
