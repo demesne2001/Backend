@@ -143,8 +143,8 @@ def GetSalesRevenue(input:CardandChartInput):
         param=commonInputDBParam(input) 
         
     
-        print('SQL Query',f"EXEC WR_DashBoard_SalesAnalysis_SalesData {param}")
-        cursor.execute(f"EXEC WR_DashBoard_SalesAnalysis_SalesData {param}")
+        print('SQL Query',f"EXEC WR_DashBoard_SalesAnalysis_SalesRevenue {param}")
+        cursor.execute(f"EXEC WR_DashBoard_SalesAnalysis_SalesRevenue {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
         
@@ -177,7 +177,8 @@ def GetHourlySales(input:CardandChartInput):
         cursor.close()
         connection.close()
     except Exception as e:
-            connection.close()
+        print(e)
+        connection.close()
     return key_value_pairs
 
 def GetTopsupplierbysales(input:CardandChartInput):
