@@ -120,9 +120,9 @@ def GetSalesman(input:FilterInput):
             param +=f" @PageSize={input.PageNo},"
         param +=f" @search='{input.search}',"
         param +=f" @strCompanyID='{input.strCompanyID}',"
-        param +=f" @strBranchID='{input.strBranchID}',"
         if (input.PageSize>0):
             param +=f" @PageNo={input.PageSize}"
+        param +=f" @strBranchID='{input.strBranchID}'"
         cursor.execute(f"EXEC WR_mstSalesman_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -266,7 +266,7 @@ def GetLotNo(input:FilterInput):
         param +=f" @strCompanyID='{input.strCompanyID}',"
         param +=f" @strItemID='{input.strItemID}',"
         param +=f" @strDesignID='{input.strDesignID}',"
-        param +=f" @strBranchID='{input.strBranchID}',"
+        param +=f" @strBranchID='{input.strBranchID}'"
         cursor.execute(f"EXEC WR_mstLotNo_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -287,13 +287,13 @@ def GetDesign(input:FilterInput):
         cursor=connection.cursor()
         if(input.PageNo>0):
             param +=f" @PageNo={input.PageNo},"
-        if(input.PageSize>0):            
-            param +=f" @PageSize={input.PageSize},"      
         param +=f" @search='{input.search}',"
         param +=f" @strCompanyID='{input.strCompanyID}',"
         param +=f" @strBranchID='{input.strBranchID}',"
-        param +=f" @strItemID='{input.strItemID}',"
-        
+        if(input.PageSize>0):            
+            param +=f" @PageSize={input.PageSize},"      
+        param +=f" @strItemID='{input.strItemID}'"
+        print(f"EXEC WR_mstDesign_GetForHelp {param}")
         cursor.execute(f"EXEC WR_mstDesign_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -303,6 +303,7 @@ def GetDesign(input:FilterInput):
         cursor.close()
         connection.close()
     except Exception as e:
+            print(e)
             connection.close()
     return key_value_pairs
 
