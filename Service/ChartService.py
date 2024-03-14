@@ -11,10 +11,10 @@ def GetSalesAging(input:CardandChartInput):
         result.Message.append(E)
     return result
 
-def GetCoustomerConversion(input:CardandChartInput):
+def GetMrpWiseRPT(input:CardandChartInput):
     result=ChartResult()
     try:
-        result.lstResult=ChartSQL.GetCoustomerConversion(input)
+        result.lstResult=ChartSQL.GetMrpWiseRPT(input)
     except  Exception as E:
         result.HasError=True
         result.Message.append(E)

@@ -12,3 +12,8 @@ def GetSalesCard(input:CardandChartInput):
 @Card.post('/GetStockCard')
 def GetStockCard(input:CardandChartInput):
      return Cardservice.GetStockCard(input)
+
+
+@Card.post('/GetProfiteCard')
+def GetProfiteCard(input:CardandChartInput):
+     return Cardservice.GetProfiteCard(input)

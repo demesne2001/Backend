@@ -61,6 +61,31 @@ def GetStockCard(input:CardandChartInput):
             connection.close()
     return key_value_pairs
 
+
+def GetProfiteCard(input:CardandChartInput):
+    key_value_pairs=[]
+    param=''
+    drivers = [item for item in pyodbc.drivers()]
+    print('driver',drivers)
+    connection=pyodbc.connect(DBConfig.WRconnection)
+    try:
+        cursor=connection.cursor()        
+               
+        param=commonInputDBParam(input)
+       
+        cursor.execute(f"EXEC WR_RawData_GetProfiteCardData  {param}")
+        columns = [column[0] for column in cursor.description]
+        rows = cursor.fetchall()
+        
+        for row in rows:
+            key_value_pairs.append(dict(zip(columns, row)))
+        cursor.close()
+        connection.close()
+    except Exception as e:
+            connection.close()
+    return key_value_pairs
+
+
 def GetSalesCard(input:CardandChartInput):
     key_value_pairs=[]
     param=''

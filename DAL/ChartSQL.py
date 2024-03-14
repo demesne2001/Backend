@@ -60,7 +60,7 @@ def GetSalesAging(input:CardandChartInput):
             connection.close()
     return key_value_pairs
 
-def GetCoustomerConversion(input:CardandChartInput):
+def GetMrpWiseRPT(input:CardandChartInput):
     key_value_pairs=[]
     param=''
     drivers = [item for item in pyodbc.drivers()]
@@ -71,8 +71,8 @@ def GetCoustomerConversion(input:CardandChartInput):
         param=commonInputDBParam(input) 
         
       
-        print('SQL Query',f"EXEC DashBoard_SalesAnalysis_SalesData {param}")
-        cursor.execute(f"EXEC  {param}")
+        print('SQL Query',f"EXEC WR_DashBoard_SalesAnalysis_MrpWiseReport {param}")
+        cursor.execute(f"EXEC WR_DashBoard_SalesAnalysis_MrpWiseReport {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
         

@@ -29,9 +29,9 @@ def GetTopSalesmanBySales(input:CardandChartInput):
      return ChartService.GetTopSalesmanBySales(input)
 
 
-@Chart.post('/GetCoustomerConversion')
-def GetCoustomerConversion(input:CardandChartInput):
-     return ChartService.GetCoustomerConversion(input)
+@Chart.post('/GetMrpWiseRPT')
+def GetMrpWiseRPT(input:CardandChartInput):
+     return ChartService.GetMrpWiseRPT(input)
 
 
 @Chart.post('/GetSalesAging')
