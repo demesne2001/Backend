@@ -74,7 +74,7 @@ def GetItemGroup(input:FilterInput):
         if(input.PageSize>0):            
             param +=f" @PageSize={input.PageSize},"      
         param +=f" @search='{input.search}'"
-        cursor.execute(f"EXEC WR__GetForHelp {param}")
+        cursor.execute(f"EXEC WR_mstItemGroup_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
         
@@ -98,7 +98,7 @@ def GetBrand(input:FilterInput):
             param +=f" @PageSize={input.PageSize},"      
         param +=f" @search='{input.search}',"
         param +=f" @strBranchID='{input.strBranchID}'"
-        cursor.execute(f"EXEC WR__GetForHelp {param}")
+        cursor.execute(f"EXEC WR_mstBrand_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
         
@@ -294,7 +294,7 @@ def GetDesign(input:FilterInput):
         param +=f" @strBranchID='{input.strBranchID}',"
         param +=f" @strItemID='{input.strItemID}',"
         
-        cursor.execute(f"EXEC WR__GetForHelp {param}")
+        cursor.execute(f"EXEC WR_mstDesign_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
         
