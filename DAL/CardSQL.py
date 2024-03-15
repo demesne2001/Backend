@@ -72,7 +72,7 @@ def GetProfiteCard(input:CardandChartInput):
         cursor=connection.cursor()        
                
         param=commonInputDBParam(input)
-       
+        print(f"EXEC WR_RawData_GetProfiteCardData  {param}")
         cursor.execute(f"EXEC WR_RawData_GetProfiteCardData  {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -82,6 +82,7 @@ def GetProfiteCard(input:CardandChartInput):
         cursor.close()
         connection.close()
     except Exception as e:
+            print(e)
             connection.close()
     return key_value_pairs
 

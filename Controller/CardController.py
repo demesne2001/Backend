@@ -3,8 +3,6 @@ from Entity.DTO.WsInput import CardandChartInput
 from Service import Cardservice
 Card=APIRouter()
 
-
-
 @Card.post('/GetSalesCard')
 def GetSalesCard(input:CardandChartInput):
      return Cardservice.GetSalesCard(input)

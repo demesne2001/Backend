@@ -23,4 +23,9 @@ class ChartResult(CommonInput):
     def __init__(self):
         super().__init__()
         self.lstResult:[]
+        
+class SubCategoryResult(CommonInput):
+    def __init__(self):
+        super().__init__()
+        self.lstresult=[]
     

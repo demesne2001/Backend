@@ -1,6 +1,6 @@
 from Entity.DTO.WsInput import CardandChartInput
-from Entity.DTO.WsResponse import CardResult
-from DAL import CardSQL
+from Entity.DTO.WsResponse import CardResult,SubCategoryResult
+from DAL import CardSQL,CommanSQL
 
 
 def GetStockCard(input:CardandChartInput):
@@ -29,3 +29,5 @@ def GetSalesCard(input:CardandChartInput):
         result.HasError=True
         result.Message.append(E)
     return result
+
+
