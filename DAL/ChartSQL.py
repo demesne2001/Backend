@@ -28,6 +28,12 @@ def commonInputDBParam(input:CardandChartInput):
             param +=f" @CommaSeperate_ItemID='{input.strItemID}',"
         if(input.strDesignID!=''):
             param +=f" @CommaSeperate_DesignID='{input.strDesignID}',"
+        if(input.strSubCategory1ID!=''):
+            param +=f" @CommaSeperate_SubCategory1ID='{input.strSubCategory1ID}',"
+        if(input.strSubCategory2ID!=''):
+            param +=f" @CommaSeperate_SubCategory2ID='{input.strSubCategory2ID}',"
+        if(input.strSubCategory3ID!=''):
+            param +=f" @CommaSeperate_SubCategory3ID='{input.strSubCategory3ID}',"
         if(input.strColorID!=''):
             param +=f" @CommaSeperate_ColorID='{input.strColorID}',"
         if(input.strSeasonID!=''):

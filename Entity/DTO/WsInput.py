@@ -34,3 +34,6 @@ class CardandChartInput(BaseModel):
     strSeasonID:str
     strSalesmanID:str
     strDesignID:str
+    strSubCategory1ID:str
+    strSubCategory2ID:str
+    strSubCategory3ID:str

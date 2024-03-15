@@ -15,6 +15,12 @@ def commonInputDBParam(input:CardandChartInput):
             param +=f" @FromDate='{input.FromDate}',"
         if(input.ToDate!=''):
             param +=f" @ToDate='{input.ToDate}',"
+        if(input.strSubCategory1ID!=''):
+            param +=f" @CommaSeperate_SubCategory1ID='{input.strSubCategory1ID}',"
+        if(input.strSubCategory2ID!=''):
+            param +=f" @CommaSeperate_SubCategory2ID='{input.strSubCategory2ID}',"
+        if(input.strSubCategory3ID!=''):
+            param +=f" @CommaSeperate_SubCategory3ID='{input.strSubCategory3ID}',"
         if(input.strDepartmentID!=''):
             param +=f" @CommaSeperate_DepartmentID='{input.strDepartmentID}',"
         if(input.strBrandID!=''):
