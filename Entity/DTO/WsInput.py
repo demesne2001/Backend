@@ -37,3 +37,4 @@ class CardandChartInput(BaseModel):
     strSubCategory1ID:str
     strSubCategory2ID:str
     strSubCategory3ID:str
+    ExtraVar:str

@@ -171,8 +171,9 @@ def GetHourlySales(input:CardandChartInput):
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()         
-        param=commonInputDBParam(input) 
-        param +=",@ChartShownAs='H'" 
+        param=commonInputDBParam(input)
+        if(input.ExtraVar!="" ): 
+            param +=f",@ChartShownAs='{input.ExtraVar}'" 
         print('SQL Query',f"EXEC WR_DashBoard_SalesAnalysis_Hourly {param}")
         cursor.execute(f"EXEC WR_DashBoard_SalesAnalysis_Hourly  {param}")
         columns = [column[0] for column in cursor.description]

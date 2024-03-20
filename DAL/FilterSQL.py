@@ -118,11 +118,12 @@ def GetSalesman(input:FilterInput):
         cursor=connection.cursor()
         if (input.PageNo>0):
             param +=f" @PageNo={input.PageNo},"
+        if (input.PageSize>0):
+            param +=f" @PageSize={input.PageSize},"
         param +=f" @search='{input.search}',"
         param +=f" @strCompanyID='{input.strCompanyID}',"
-        if (input.PageSize>0):
-            param +=f" @PageSize={input.PageSize}"
         param +=f" @strBranchID='{input.strBranchID}'"
+        
         cursor.execute(f"EXEC WR_mstSalesman_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
