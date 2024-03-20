@@ -15,7 +15,7 @@ def GetSubCategory(input:FilterInput):
 def GetParmCaption():
     result=SubCategoryResult()
     try:
-        result.lstresult=CommanSQL.GetParmCaption()
+        result=CommanSQL.GetParmCaption()
     except  Exception as E:
         result.HasError=True
         result.Message.append(E)

@@ -28,4 +28,6 @@ class SubCategoryResult(CommonInput):
     def __init__(self):
         super().__init__()
         self.lstresult=[]
+        self.FromDate=""
+        self.ToDate=""
     
