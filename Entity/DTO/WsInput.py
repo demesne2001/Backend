@@ -38,3 +38,4 @@ class CardandChartInput(BaseModel):
     strSubCategory2ID:str
     strSubCategory3ID:str
     ExtraVar:str
+    strLotNo:str

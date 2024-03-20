@@ -40,6 +40,8 @@ def commonInputDBParam(input:CardandChartInput):
             param +=f" @CommaSeperate_SeasonID='{input.strSeasonID}',"
         if(input.strSalesmanID!=''):
             param +=f" @CommaSeperate_SalesmanID='{input.strSalesmanID}',"
+        if(input.strLotNo!=''):
+            param +=f" @LotNo='{input.strLotNo}',"
         param +=f" @TranType='A'"
         return  param
 
