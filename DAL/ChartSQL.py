@@ -34,8 +34,24 @@ def commonInputDBParam(input:CardandChartInput):
             param +=f" @CommaSeperate_SubCategory2ID='{input.strSubCategory2ID}',"
         if(input.strSubCategory3ID!=''):
             param +=f" @CommaSeperate_SubCategory3ID='{input.strSubCategory3ID}',"
+        if(input.strSubCategory4ID!=''):
+            param +=f" @CommaSeperate_SubCategory4ID='{input.strSubCategory4ID}',"
+        if(input.strSubCategory5ID!=''):
+            param +=f" @CommaSeperate_SubCategory5ID='{input.strSubCategory5ID}',"
+        if(input.strSubCategory6ID!=''):
+            param +=f" @CommaSeperate_SubCategory6ID='{input.strSubCategory6ID}',"
+        if(input.strSubCategory7ID!=''):
+            param +=f" @CommaSeperate_SubCategory7ID='{input.strSubCategory7ID}',"
+        if(input.strSubCategory8ID!=''):
+            param +=f" @CommaSeperate_SubCategory8ID='{input.strSubCategory8ID}',"
+        if(input.strSubCategory9ID!=''):
+            param +=f" @CommaSeperate_SubCategory9ID='{input.strSubCategory9ID}',"
+        if(input.strSubCategory10ID!=''):
+            param +=f" @CommaSeperate_SubCategory10ID='{input.strSubCategory10ID}',"      
         if(input.strColorID!=''):
             param +=f" @CommaSeperate_ColorID='{input.strColorID}',"
+        if(input.strDayBookID!=''):
+            param +=f" @CommaSeperate_DayBookID='{input.strDayBookID}',"
         if(input.strSeasonID!=''):
             param +=f" @CommaSeperate_SeasonID='{input.strSeasonID}',"
         if(input.strSalesmanID!=''):
