@@ -121,6 +121,16 @@ def Getcompany(input:FilterInput):
         result.Message.append(E)
     return result
 
+def GetDayBook():
+    result=FilterResult()
+    try:        
+        result.lstResult=FilterSQL.GetDayBook()       
+    except  Exception as E:
+        print(E)
+        result.HasError=True
+        result.Message.append(E)
+    return result
+
 
 
 

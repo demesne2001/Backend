@@ -57,4 +57,7 @@ def GetLotNo(input:FilterInput):
 def GetDesign(input:FilterInput):
     return FilterService.GetDesignservice(input)
 
+@Filter.post('/GetDayBook')
+def GetDayBook(input:FilterInput):
+    return FilterService.GetDayBook()
 

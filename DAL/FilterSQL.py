@@ -308,6 +308,25 @@ def GetDesign(input:FilterInput):
             connection.close()
     return key_value_pairs
 
+def GetDayBook():
+    key_value_pairs=[]
+    param=''
+    connection=pyodbc.connect(DBConfig.WRconnection)
+    try:
+        cursor=connection.cursor()        
+        cursor.execute(f"EXEC wr_mstDayBook_GetForHelp")
+        columns = [column[0] for column in cursor.description]
+        rows = cursor.fetchall()
+        
+        for row in rows:
+            key_value_pairs.append(dict(zip(columns, row)))
+        cursor.close()
+        connection.close()
+    except Exception as e:
+            print(e)
+            connection.close()
+    return key_value_pairs
+
 
 
 

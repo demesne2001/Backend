@@ -20,22 +20,29 @@ class FilterInput(BaseModel):
     
     
 class CardandChartInput(BaseModel):
-    ChartValueOption:str
-    strCompanyID:str
-    strBranchID:str
-    FromDate:str
-    ToDate:str
-    strDepartmentID:str
-    strBrandID:str
-    strProductID:str
-    strItemGroupID:str
-    strItemID:str
-    strColorID:str
-    strSeasonID:str
-    strSalesmanID:str
-    strDesignID:str
-    strSubCategory1ID:str
-    strSubCategory2ID:str
-    strSubCategory3ID:str
-    ExtraVar:str
-    strLotNo:str
+    ChartValueOption:str | None= Field(default="")
+    strCompanyID:str| None= Field(default="")
+    strBranchID:str| None= Field(default="")
+    FromDate:str| None= Field(default="")
+    ToDate:str| None= Field(default="")
+    strDepartmentID:str| None= Field(default="")
+    strBrandID:str| None= Field(default="")
+    strProductID:str| None= Field(default="")
+    strItemGroupID:str| None= Field(default="")
+    strItemID:str| None= Field(default="")
+    strColorID:str| None= Field(default="")
+    strSeasonID:str| None= Field(default="")
+    strSalesmanID:str| None= Field(default="")
+    strDesignID:str| None= Field(default="")
+    strSubCategory1ID:str| None= Field(default="") 
+    strSubCategory2ID:str| None= Field(default="")
+    strSubCategory3ID:str| None= Field(default="")
+    strSubCategory4ID:str | None= Field(default="")
+    strSubCategory5ID:str | None= Field(default="")
+    strSubCategory6ID:str | None= Field(default="")
+    strSubCategory7ID:str | None= Field(default="")
+    strSubCategory8ID:str | None= Field(default="")
+    strSubCategory9ID:str | None= Field(default="")
+    strSubCategory10ID:str | None= Field(default="")
+    ExtraVar:str | None= Field(default="")
+    strLotNo:str | None= Field(default="")
