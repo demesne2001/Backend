@@ -93,8 +93,6 @@ def GetMrpWiseRPT(input:CardandChartInput):
     try:
         cursor=connection.cursor()         
         param=commonInputDBParam(input) 
-        
-      
         print('SQL Query',f"EXEC WR_DashBoard_SalesAnalysis_MrpWiseReport {param}")
         cursor.execute(f"EXEC WR_DashBoard_SalesAnalysis_MrpWiseReport {param}")
         columns = [column[0] for column in cursor.description]
@@ -105,6 +103,7 @@ def GetMrpWiseRPT(input:CardandChartInput):
         cursor.close()
         connection.close()
     except Exception as e:
+            print(e)
             connection.close()
     return key_value_pairs
 

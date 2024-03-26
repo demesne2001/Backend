@@ -16,6 +16,7 @@ def GetMrpWiseRPT(input:CardandChartInput):
     try:
         result.lstResult=ChartSQL.GetMrpWiseRPT(input)
     except  Exception as E:
+        print(E)
         result.HasError=True
         result.Message.append(E)
     return result
