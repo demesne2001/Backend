@@ -44,5 +44,6 @@ class CardandChartInput(BaseModel):
     strSubCategory8ID:str | None= Field(default="")
     strSubCategory9ID:str | None= Field(default="")
     strSubCategory10ID:str | None= Field(default="")
+    strDayBookID:str | None= Field(default="")
     ExtraVar:str | None= Field(default="")
     strLotNo:str | None= Field(default="")
