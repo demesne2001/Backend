@@ -121,6 +121,46 @@ def Getcompany(input:FilterInput):
         result.Message.append(E)
     return result
 
+def GetCity():
+    result=FilterResult()
+    try:        
+        result.lstResult=FilterSQL.GetcommanWithoutParam("WR_mstCity_GetForHelp")       
+    except  Exception as E:
+        print(E)
+        result.HasError=True
+        result.Message.append(E)
+    return result
+
+def GetState():
+    result=FilterResult()
+    try:        
+        result.lstResult=FilterSQL.GetcommanWithoutParam("WR_mstState_GetForHelp")       
+    except  Exception as E:
+        print(E)
+        result.HasError=True
+        result.Message.append(E)
+    return result
+
+def GetRegion():
+    result=FilterResult()
+    try:        
+        result.lstResult=FilterSQL.GetcommanWithoutParam("WR_mstRegion_GetForHelp")       
+    except  Exception as E:
+        print(E)
+        result.HasError=True
+        result.Message.append(E)
+    return result
+
+def GetAccount(Frombsgr:int,ToBsgr:int,PageNo:int,PageSize:int,search:str):
+    result=FilterResult()
+    try:        
+        result.lstResult=FilterSQL.GetAccount(Frombsgr,ToBsgr,PageNo,PageSize,search)       
+    except  Exception as E:
+        print(E)
+        result.HasError=True
+        result.Message.append(E)
+    return result
+
 def GetDayBook():
     result=FilterResult()
     try:        

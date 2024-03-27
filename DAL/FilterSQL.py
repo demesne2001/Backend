@@ -327,7 +327,46 @@ def GetDayBook():
             connection.close()
     return key_value_pairs
 
+def GetcommanWithoutParam(spname:str):
+    key_value_pairs=[]
+    param=''
+    connection=pyodbc.connect(DBConfig.WRconnection)
+    try:
+        cursor=connection.cursor()        
+        cursor.execute(f"EXEC {spname}")
+        columns = [column[0] for column in cursor.description]
+        rows = cursor.fetchall()
+        
+        for row in rows:
+            key_value_pairs.append(dict(zip(columns, row)))
+        cursor.close()
+        connection.close()
+    except Exception as e:
+            print(e)
+            connection.close()
+    return key_value_pairs
 
+
+def GetAccount(FromBsgr:int,toBsgr:int,PageNo:int,PageSize:int,search:str):
+    key_value_pairs=[]
+    param=''
+    connection=pyodbc.connect(DBConfig.WRconnection)
+    try:
+        cursor=connection.cursor()    
+        param+=f"@FromBsgrID={FromBsgr}, @ToBsgrID={toBsgr},@PageNo={PageNo},@PageSize={PageSize},@search='{search}'"         
+           
+        cursor.execute(f"EXEC Wr_SalesParty_GetForHelp {param}")
+        columns = [column[0] for column in cursor.description]
+        rows = cursor.fetchall()
+        
+        for row in rows:
+            key_value_pairs.append(dict(zip(columns, row)))
+        cursor.close()
+        connection.close()
+    except Exception as e:
+            print(e)
+            connection.close()
+    return key_value_pairs
 
 
         
