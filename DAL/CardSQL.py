@@ -53,6 +53,18 @@ def commonInputDBParam(input:CardandChartInput):
             param +=f" @CommaSeperate_ColorID='{input.strColorID}',"
         if(input.strSeasonID!=''):
             param +=f" @CommaSeperate_SeasonID='{input.strSeasonID}',"
+        if(input.strCity!=''):
+            param +=f" @CommaSeperate_City='{input.strCity}',"
+        if(input.strState!=''):
+            param +=f" @CommaSeperate_State='{input.strState}',"
+        if(input.strRegionID!=''):
+            param +=f" @CommaSeperate_RegionID='{input.strRegionID}',"
+        if(input.strSalesAccountID!=''):
+            param +=f" @CommaSeperate_SalesAccountID='{input.strSalesAccountID}',"
+        if(input.strPurchaseAccountID!=''):
+            param +=f" @CommaSeperate_PurchaseAccountID='{input.strPurchaseAccountID}',"
+        if(input.strStyleID!=''):
+            param +=f" @CommaSeperate_StyleID='{input.strStyleID}',"
         if(input.strSalesmanID!=''):
             param +=f" @CommaSeperate_SalesmanID='{input.strSalesmanID}',"
         param +=f" @TranType='A'"

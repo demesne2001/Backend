@@ -83,3 +83,7 @@ def Getsalesparty(PageNo:int,PageSize:int,search:str=""):
 def GetPurchaseParty(PageNo:int,PageSize:int,search:str=""):
     return FilterService.GetAccount(1511,1549,PageNo,PageSize,search)
 
+@Filter.post('/GetStyle')
+def GetStyle():
+    return FilterService.GetStyle()
+

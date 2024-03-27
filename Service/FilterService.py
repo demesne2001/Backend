@@ -151,6 +151,16 @@ def GetRegion():
         result.Message.append(E)
     return result
 
+def GetStyle():
+    result=FilterResult()
+    try:        
+        result.lstResult=FilterSQL.GetcommanWithoutParam("Wr_mststyle_GetForHelp")       
+    except  Exception as E:
+        print(E)
+        result.HasError=True
+        result.Message.append(E)
+    return result
+
 def GetAccount(Frombsgr:int,ToBsgr:int,PageNo:int,PageSize:int,search:str):
     result=FilterResult()
     try:        

@@ -47,3 +47,10 @@ class CardandChartInput(BaseModel):
     strDayBookID:str | None= Field(default="")
     ExtraVar:str | None= Field(default="")
     strLotNo:str | None= Field(default="")
+    strCity:str | None= Field(default="")
+    strState:str | None= Field(default="")
+    strRegionID:str | None= Field(default="")
+    strSalesAccountID:str | None= Field(default="")
+    strPurchaseAccountID:str | None= Field(default="")
+    strStyleID:str | None= Field(default="")
+    
