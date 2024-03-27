@@ -1,5 +1,5 @@
 from fastapi import APIRouter,Body,Depends
-from Entity.DTO.WsInput import FilterInput
+from Entity.DTO.WsInput import FilterInput,GetAccountInput
 from Service import FilterService
 
 Filter=APIRouter()
@@ -76,12 +76,12 @@ def GetRegion():
     return FilterService.GetRegion()
 
 @Filter.post('/GetSalesParty')
-def Getsalesparty(PageNo:int,PageSize:int,search:str=""):
-    return FilterService.GetAccount(2451,2489,PageNo,PageSize,search)
+def Getsalesparty(input:GetAccountInput):
+    return FilterService.GetAccount(2451,2489,input.PageNo,input.PageSize,input.search)
 
 @Filter.post('/GetPurchaseParty')
-def GetPurchaseParty(PageNo:int,PageSize:int,search:str=""):
-    return FilterService.GetAccount(1511,1549,PageNo,PageSize,search)
+def GetPurchaseParty(input:GetAccountInput):
+    return FilterService.GetAccount(1511,1549,input.PageNo,input.PageSize,input.search)
 
 @Filter.post('/GetStyle')
 def GetStyle():

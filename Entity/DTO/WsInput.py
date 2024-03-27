@@ -17,6 +17,11 @@ class FilterInput(BaseModel):
     strItemID:str
     strDesignID:str
     SubCategoryNo:int
+
+class GetAccountInput(BaseModel):
+    PageNo:int
+    PageSize:int
+    search:str=""
     
     
 class CardandChartInput(BaseModel):
