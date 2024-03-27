@@ -1,2 +1,4 @@
 .DAL/DBConfig.py
 .env
+DAL/DBConfig.py
+DAL/__pycache__/DBConfig.cpython-312.pyc

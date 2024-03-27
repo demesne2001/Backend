@@ -14,7 +14,7 @@ def GetParmCaption():
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()         
-        param+=f"@strParmID='29,30,31'" 
+        param+=f"@strParmID='29,30,31,1149,1150,1151,1152,1153,1154,1155'" 
         cursor.execute(f"EXEC WR_AlphaParm_GetForHelp  {param}")        
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()

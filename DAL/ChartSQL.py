@@ -191,7 +191,7 @@ def GetHourlySales(input:CardandChartInput):
         param=commonInputDBParam(input)
         if(input.ExtraVar!="" ): 
             param +=f",@ChartShownAs='{input.ExtraVar}'" 
-        print('SQL Query',f"EXEC WR_DashBoard_SalesAnalysis_Hourly {param}")
+        
         cursor.execute(f"EXEC WR_DashBoard_SalesAnalysis_Hourly  {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -201,7 +201,7 @@ def GetHourlySales(input:CardandChartInput):
         cursor.close()
         connection.close()
     except Exception as e:
-        print(e)
+        print('GetHourlySales',e)
         connection.close()
     return key_value_pairs
 
@@ -212,14 +212,11 @@ def GetTopsupplierbysales(input:CardandChartInput):
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()         
-        param=commonInputDBParam(input) 
+        param=commonInputDBParam(input)        
         
-        print('SQL Query',f"EXEC WR_DashBoard_SalesAnalysis_TopParty {param}")
         cursor.execute(f"EXEC WR_DashBoard_SalesAnalysis_TopParty {param}")
         columns = [column[0] for column in cursor.description]
-        rows = cursor.fetchall()
-        print('result',rows)
-        
+        rows = cursor.fetchall()        
         for row in rows:
             key_value_pairs.append(dict(zip(columns, row)))
         cursor.close()
