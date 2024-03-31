@@ -158,9 +158,9 @@ def GetRegion(input:FilterInput):
 def GetStyle(input:FilterInput):
     result=FilterResult()
     try:
-        sp=f"Wr_mststyle_GetForHelp @PageSize={input.PageSize},@pageNo={input.PageNo},@search='{input.search}',@strBrandID='{input.strBrandID}'
-            ,@strProductID='{input.strProductID}',@strItemGroupID='{input.strItemGroupID}',@strDepartmentID='{input.strDepartmentID}'"        
-        result.lstResult=FilterSQL.GetcommanWithoutParam("Wr_mststyle_GetForHelp")       
+        sp=f"Wr_mststyle_GetForHelp @PageSize={input.PageSize},@pageNo={input.PageNo},@search='{input.search}',@strBrandID='{input.strBrandID}'," 
+        sp+= f"@strProductID='{input.strProductID}',@strItemGroupID='{input.strItemGroupID}',@strDepartmentID='{input.strDepartmentID}'"        
+        result.lstResult=FilterSQL.GetcommanWithoutParam(sp)       
     except  Exception as E:
         print(E)
         result.HasError=True

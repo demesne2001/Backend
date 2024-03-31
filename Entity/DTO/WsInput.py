@@ -32,7 +32,7 @@ class FilterInput(BaseModel):
     PageNo:int | None= Field(default=1)
     strItemID:str| None= Field(default="")
     strDesignID:str | None= Field(default="")
-    SubCategoryNo:int | None= Field(default="")
+    SubCategoryNo:int | None= Field(default=1)
     strCity:str | None= Field(default="")
     strState:str | None= Field(default="")
     strRegionID:str | None= Field(default="")

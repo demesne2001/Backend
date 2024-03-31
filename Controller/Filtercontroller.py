@@ -76,11 +76,11 @@ def GetRegion(input:FilterInput):
     return FilterService.GetRegion(input)
 
 @Filter.post('/GetSalesParty')
-def Getsalesparty(input:GetAccountInput):
+def Getsalesparty(input:FilterInput):
     return FilterService.GetAccount(2451,2489,input.PageNo,input.PageSize,input.search,input.strState,input.strCity,input.strRegionID)
 
 @Filter.post('/GetPurchaseParty')
-def GetPurchaseParty(input:GetAccountInput):
+def GetPurchaseParty(input:FilterInput):
     return FilterService.GetAccount(1511,1549,input.PageNo,input.PageSize,input.search,input.strState,input.strCity,input.strRegionID)
 
 @Filter.post('/GetStyle')

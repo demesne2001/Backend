@@ -249,8 +249,9 @@ def GetItemName(input:FilterInput):
         param +=f" @strBrandID='{input.strBrandID}',"
         param +=f" @strProductID='{input.strProductID}',"
         param +=f" @strItemGroupID='{input.strItemGroupID}',"        
-        param +=f" @strDepartmentID='{input.strDepartmentID}'"
-        param +=f" @@strStyleID='{input.strStyleID}'"
+        param +=f" @strDepartmentID='{input.strDepartmentID}',"
+        param +=f" @strStyleID='{input.strStyleID}'"
+        print('itemname',f"EXEC WR_mstItem_GetForHelp {param}")
         cursor.execute(f"EXEC WR_mstItem_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -277,10 +278,10 @@ def GetLotNo(input:FilterInput):
         param +=f" @strCompanyID='{input.strCompanyID}',"
         param +=f" @strItemID='{input.strItemID}',"
         param +=f" @strDesignID='{input.strDesignID}',"
-        param +=f" @strBranchID='{input.strBranchID}'"
-        param +=f" @strProductID='{input.strProductID}'"
-        param +=f" @strItemGroupID='{input.strItemGroupID}'"
-        param +=f" @strStyleID='{input.strStyleID}'"
+        param +=f" @strBranchID='{input.strBranchID}',"
+        param +=f" @strProductID='{input.strProductID}',"
+        param +=f" @strItemGroupID='{input.strItemGroupID}',"
+        param +=f" @strStyleID='{input.strStyleID}',"
         param +=f" @strDepartmentID='{input.strDepartmentID}'"
         cursor.execute(f"EXEC WR_mstLotNo_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
@@ -367,9 +368,9 @@ def GetAccount(FromBsgr:int,toBsgr:int,PageNo:int,PageSize:int,search:str,strSta
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()    
-        param+=f"@FromBsgrID={FromBsgr}, @ToBsgrID={toBsgr},@PageNo={PageNo},@PageSize={PageSize},@search='{search}'
-            ,@strRegionID='{strRegionID}',@strCityName='{strCityName}',@strStatename='{strStatename}'"         
-           
+        param+=f"@FromBsgrID={FromBsgr}, @ToBsgrID={toBsgr},@PageNo={PageNo},@PageSize={PageSize},@search='{search}',"
+        param+=f"@strRegionID='{strRegionID}',@strCityName='{strCityName}',@strStatename='{strStatename}'"         
+        
         cursor.execute(f"EXEC Wr_SalesParty_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
