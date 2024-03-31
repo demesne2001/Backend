@@ -63,27 +63,27 @@ def GetDayBook(input:FilterInput):
 
 
 @Filter.post('/GetCity')
-def GetCity():
-    return FilterService.GetCity()
+def GetCity(input:FilterInput):
+    return FilterService.GetCity(input)
 
 
 @Filter.post('/GetState')
-def GetState():
-    return FilterService.GetState()
+def GetState(input:FilterInput):
+    return FilterService.GetState(input)
 
 @Filter.post('/GetRegion')
-def GetRegion():
-    return FilterService.GetRegion()
+def GetRegion(input:FilterInput):
+    return FilterService.GetRegion(input)
 
 @Filter.post('/GetSalesParty')
 def Getsalesparty(input:GetAccountInput):
-    return FilterService.GetAccount(2451,2489,input.PageNo,input.PageSize,input.search)
+    return FilterService.GetAccount(2451,2489,input.PageNo,input.PageSize,input.search,input.strState,input.strCity,input.strRegionID)
 
 @Filter.post('/GetPurchaseParty')
 def GetPurchaseParty(input:GetAccountInput):
-    return FilterService.GetAccount(1511,1549,input.PageNo,input.PageSize,input.search)
+    return FilterService.GetAccount(1511,1549,input.PageNo,input.PageSize,input.search,input.strState,input.strCity,input.strRegionID)
 
 @Filter.post('/GetStyle')
-def GetStyle():
-    return FilterService.GetStyle()
+def GetStyle(input:FilterInput):
+    return FilterService.GetStyle(input)
 

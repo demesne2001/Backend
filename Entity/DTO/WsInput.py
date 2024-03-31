@@ -3,20 +3,40 @@ from pydantic import BaseModel,Field
 class LoginInput(BaseModel):
     email:str= Field(default=None)
     password:str= Field(default=None)
-
+    
+# class FilterCommoninput(BaseModel):
+#     strCompanyID:str| None= Field(default="")
+#     strBranchID:str| None= Field(default="")
+#     strDepartmentID:str| None= Field(default="")
+#     strBrandID:str| None= Field(default="")
+#     strProductID:str| None= Field(default="")
+#     strItemGroupID:str| None= Field(default="")
+#     strItemID:str| None= Field(default="")     
+#     strDesignID:str| None= Field(default="")
+#     strCity:str | None= Field(default="")
+#     strState:str | None= Field(default="")
+#     strRegionID:str | None= Field(default="")
+#     strSalesAccountID:str | None= Field(default="")
+#     strPurchaseAccountID:str | None= Field(default="")
+#     strStyleID:str | None= Field(default="")
+    
 class FilterInput(BaseModel):
-    search:str
-    strCompanyID:str
-    strBranchID:str
-    strDepartmentID:str
-    strBrandID:str
-    strProductID:str
-    strItemGroupID:str
-    PageSize:int
-    PageNo:int
-    strItemID:str
-    strDesignID:str
-    SubCategoryNo:int
+    search:str| None= Field(default="")
+    strCompanyID:str| None= Field(default="")
+    strBranchID:str| None= Field(default="")
+    strDepartmentID:str| None= Field(default="")
+    strBrandID:str| None= Field(default="")
+    strProductID:str| None= Field(default="")
+    strItemGroupID:str| None= Field(default="")
+    PageSize:int| None= Field(default=9999)
+    PageNo:int | None= Field(default=1)
+    strItemID:str| None= Field(default="")
+    strDesignID:str | None= Field(default="")
+    SubCategoryNo:int | None= Field(default="")
+    strCity:str | None= Field(default="")
+    strState:str | None= Field(default="")
+    strRegionID:str | None= Field(default="")
+    strStyleID:str | None= Field(default="")
 
 class GetAccountInput(BaseModel):
     PageNo:int

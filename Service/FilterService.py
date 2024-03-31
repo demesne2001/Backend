@@ -113,7 +113,8 @@ def GetBranch(input:FilterInput):
 
 def Getcompany(input:FilterInput):
     result=FilterResult()
-    try:        
+    try:     
+        
         result.lstResult=FilterSQL.Getcompany(input)       
     except  Exception as E:
         print(E)
@@ -121,39 +122,44 @@ def Getcompany(input:FilterInput):
         result.Message.append(E)
     return result
 
-def GetCity():
+def GetCity(input:FilterInput):
     result=FilterResult()
     try:        
-        result.lstResult=FilterSQL.GetcommanWithoutParam("WR_mstCity_GetForHelp")       
+        sp=f"WR_mstCity_GetForHelp @strstateName='{input.strState}',@PageSize={input.PageSize},@PageNo={input.PageNo},@search='{input.search}'"   
+        result.lstResult=FilterSQL.GetcommanWithoutParam(sp)       
     except  Exception as E:
         print(E)
         result.HasError=True
         result.Message.append(E)
     return result
 
-def GetState():
+def GetState(input:FilterInput):
     result=FilterResult()
-    try:        
-        result.lstResult=FilterSQL.GetcommanWithoutParam("WR_mstState_GetForHelp")       
+    try:   
+        sp=f"WR_mstState_GetForHelp @PageSize={input.PageSize},@pageNo={input.PageNo},@search='{input.search}'"     
+        result.lstResult=FilterSQL.GetcommanWithoutParam(sp)       
     except  Exception as E:
         print(E)
         result.HasError=True
         result.Message.append(E)
     return result
 
-def GetRegion():
+def GetRegion(input:FilterInput):
     result=FilterResult()
     try:        
-        result.lstResult=FilterSQL.GetcommanWithoutParam("WR_mstRegion_GetForHelp")       
+        sp=f"WR_mstRegion_GetForHelp @PageSize={input.PageSize},@pageNo={input.PageNo},@search='{input.search}',@strState='{input.strState}',@strCity='{input.strCity}'"     
+        result.lstResult=FilterSQL.GetcommanWithoutParam(sp)       
     except  Exception as E:
         print(E)
         result.HasError=True
         result.Message.append(E)
     return result
 
-def GetStyle():
+def GetStyle(input:FilterInput):
     result=FilterResult()
-    try:        
+    try:
+        sp=f"Wr_mststyle_GetForHelp @PageSize={input.PageSize},@pageNo={input.PageNo},@search='{input.search}',@strBrandID='{input.strBrandID}'
+            ,@strProductID='{input.strProductID}',@strItemGroupID='{input.strItemGroupID}',@strDepartmentID='{input.strDepartmentID}'"        
         result.lstResult=FilterSQL.GetcommanWithoutParam("Wr_mststyle_GetForHelp")       
     except  Exception as E:
         print(E)
@@ -161,10 +167,10 @@ def GetStyle():
         result.Message.append(E)
     return result
 
-def GetAccount(Frombsgr:int,ToBsgr:int,PageNo:int,PageSize:int,search:str):
+def GetAccount(Frombsgr:int,ToBsgr:int,PageNo:int,PageSize:int,search:str,strStatename:str,strCityName:str,strRegionID:str):
     result=FilterResult()
     try:        
-        result.lstResult=FilterSQL.GetAccount(Frombsgr,ToBsgr,PageNo,PageSize,search)       
+        result.lstResult=FilterSQL.GetAccount(Frombsgr,ToBsgr,PageNo,PageSize,search,strStatename,strCityName,strRegionID)       
     except  Exception as E:
         print(E)
         result.HasError=True

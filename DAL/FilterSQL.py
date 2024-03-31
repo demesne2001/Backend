@@ -50,7 +50,8 @@ def GetDepartment(input:FilterInput):
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()
-        param +=f" @search='{input.search}'"
+        param +=f" @search='{input.search}',@PageSize={input.PageSize},@PageNo={input.PageNo}"
+        
         cursor.execute(f"EXEC WR_mstDepartment_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -167,6 +168,10 @@ def GetSeason(input:FilterInput):
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()
+        if (input.PageSize>0):
+            param +=f" @PageSize={input.PageSize},"        
+        if (input.PageNo>0):
+            param +=f" @PageNo={input.PageNo},"
         param +=f" @search='{input.search}'"
         cursor.execute(f"EXEC WR_mstSeason_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
@@ -186,7 +191,11 @@ def GetFit(input:FilterInput):
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()
-        param +=f" @search='{input.search}'"
+        if (input.PageSize>0):
+            param +=f" @PageSize={input.PageSize},"        
+        if (input.PageNo>0):
+            param +=f" @PageNo={input.PageNo},"
+        param +=f" @search='{input.search}',@strProductID='{input.strProductID}'"
         cursor.execute(f"EXEC WR_mstSize_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -210,7 +219,7 @@ def GetColor(input:FilterInput):
             param +=f" @PageNo={input.PageNo},"
         if(input.PageSize>0):
             param +=f" @PageSize={input.PageSize},"
-        param +=f" @search='{input.search}'"
+        param +=f" @search='{input.search}',@strBranchID='{input.strBranchID}'"
       
         cursor.execute(f"EXEC WR_mstColor_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
@@ -241,6 +250,7 @@ def GetItemName(input:FilterInput):
         param +=f" @strProductID='{input.strProductID}',"
         param +=f" @strItemGroupID='{input.strItemGroupID}',"        
         param +=f" @strDepartmentID='{input.strDepartmentID}'"
+        param +=f" @@strStyleID='{input.strStyleID}'"
         cursor.execute(f"EXEC WR_mstItem_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -268,6 +278,10 @@ def GetLotNo(input:FilterInput):
         param +=f" @strItemID='{input.strItemID}',"
         param +=f" @strDesignID='{input.strDesignID}',"
         param +=f" @strBranchID='{input.strBranchID}'"
+        param +=f" @strProductID='{input.strProductID}'"
+        param +=f" @strItemGroupID='{input.strItemGroupID}'"
+        param +=f" @strStyleID='{input.strStyleID}'"
+        param +=f" @strDepartmentID='{input.strDepartmentID}'"
         cursor.execute(f"EXEC WR_mstLotNo_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
@@ -347,13 +361,14 @@ def GetcommanWithoutParam(spname:str):
     return key_value_pairs
 
 
-def GetAccount(FromBsgr:int,toBsgr:int,PageNo:int,PageSize:int,search:str):
+def GetAccount(FromBsgr:int,toBsgr:int,PageNo:int,PageSize:int,search:str,strStatename:str,strCityName:str,strRegionID:str):
     key_value_pairs=[]
     param=''
     connection=pyodbc.connect(DBConfig.WRconnection)
     try:
         cursor=connection.cursor()    
-        param+=f"@FromBsgrID={FromBsgr}, @ToBsgrID={toBsgr},@PageNo={PageNo},@PageSize={PageSize},@search='{search}'"         
+        param+=f"@FromBsgrID={FromBsgr}, @ToBsgrID={toBsgr},@PageNo={PageNo},@PageSize={PageSize},@search='{search}'
+            ,@strRegionID='{strRegionID}',@strCityName='{strCityName}',@strStatename='{strStatename}'"         
            
         cursor.execute(f"EXEC Wr_SalesParty_GetForHelp {param}")
         columns = [column[0] for column in cursor.description]
