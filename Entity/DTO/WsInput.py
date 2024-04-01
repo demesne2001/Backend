@@ -48,6 +48,10 @@ class UploadFile(BaseModel):
     Extension:str
     LoginID:str
     
+class DeleteFile(BaseModel):
+    FileName:str
+    
+    
 class CardandChartInput(BaseModel):
     ChartValueOption:str | None= Field(default="")
     strCompanyID:str| None= Field(default="")

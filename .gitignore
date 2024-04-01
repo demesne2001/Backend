@@ -1,4 +1,2 @@
 .env
-DAL/DBConfig.py
-DAL/__pycache__/DBConfig.cpython-312.pyc
-DAL/DBConfig.py
+Utility/Image

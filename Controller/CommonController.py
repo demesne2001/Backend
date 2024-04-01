@@ -1,6 +1,7 @@
 from fastapi import APIRouter,Body,Depends
-from Entity.DTO.WsInput import FilterInput,UploadFile
+from Entity.DTO.WsInput import FilterInput,UploadFile,DeleteFile
 from Service import CommanService
+import os
 import base64
 
 Common=APIRouter()
@@ -30,3 +31,9 @@ async def Create_upload(input:UploadFile):
     with open(F"{BaseDirectory}{input.LoginID}.{input.Extension}","wb") as f:
         f.write(data)
     return {'filename':F"{input.LoginID}.{input.Extension}"}
+
+@Common.post('/DeleteFile')
+async def DeleteFileByName(input:DeleteFile): 
+      if(os.path.exists(BaseDirectory+input.FileName)): 
+        os.remove(BaseDirectory+input.FileName)
+        return {"Mesage":f"Delete File {input.FileName}"}
