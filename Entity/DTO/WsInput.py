@@ -43,6 +43,10 @@ class GetAccountInput(BaseModel):
     PageSize:int
     search:str=""
     
+class UploadFile(BaseModel):
+    Base64:str
+    Extension:str
+    LoginID:str
     
 class CardandChartInput(BaseModel):
     ChartValueOption:str | None= Field(default="")
