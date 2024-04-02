@@ -31,7 +31,7 @@ pipeline {
         stage('Docker Run') {
             steps {
                 script{
-                    bat 'docker run -p 7000:7000 -v D:/Shared:/BackendForWebReport -d --name  webreportback  webreportback'
+                    bat 'docker run -p 7000:7000  -d --name  webreportback  webreportback'
                 }
                 echo 'Docker Running'
             }
