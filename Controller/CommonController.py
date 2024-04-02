@@ -6,7 +6,7 @@ import base64
 
 Common=APIRouter()
 
-BaseDirectory="Shared/Garment"
+BaseDirectory="Shared/Image"
 
 @Common.post('/GetSubCategory')
 def GetSubCategory(input:FilterInput):
