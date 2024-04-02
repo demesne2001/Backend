@@ -20,7 +20,7 @@ if(os.path.exists(path)):
 else:
     os.makedirs(path)
 
-app.mount("/image", StaticFiles(directory="Shared/Image"), name="image")
+app.mount("/image", StaticFiles(directory="Shared"), name="image")
 @app.post("/Demo")
 def Demo():
     return{"msg":"Welcome to Fast"}
