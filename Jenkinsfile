@@ -13,8 +13,7 @@ pipeline {
         
 
         stage('Docker Image') {
-            steps {
-                
+            steps {                
                 script{
                     def a=0
                     bat 'docker build . -f dockerfile.txt -t  webreportback'

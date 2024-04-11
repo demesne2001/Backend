@@ -1,5 +1,5 @@
 from fastapi import APIRouter,Body,Depends
-from Entity.DTO.WsInput import FilterInput,GetAccountInput
+from Entity.DTO.WsInput import FilterInput,GetAccountInput,GetByID,AddEditFilterGrid
 from Service import FilterService
 
 Filter=APIRouter()
@@ -87,3 +87,10 @@ def GetPurchaseParty(input:FilterInput):
 def GetStyle(input:FilterInput):
     return FilterService.GetStyle(input)
 
+@Filter.post('/GetFilterGridByID')
+def GetFilterGridByID(input:GetByID):
+    return FilterService.GetFilterGridByID(input)
+
+@Filter.post('/FilterGridAddEdit')
+def FilterGridAddEdit(input:AddEditFilterGrid):
+    return FilterService.FilterGridAddEdit(input)

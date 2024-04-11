@@ -51,6 +51,13 @@ class UploadFile(BaseModel):
 class DeleteFile(BaseModel):
     FileName:str
     
+class GetByID(BaseModel):
+    ID:int
+
+class AddEditFilterGrid(BaseModel):
+    FilterGridID:int
+    FilterGrid:str
+    FilterID:int
     
 class CardandChartInput(BaseModel):
     ChartValueOption:str | None= Field(default="")
