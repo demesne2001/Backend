@@ -42,5 +42,5 @@ async def DeleteFileByName(input:DeleteFile):
     
 @Common.post('/GetPDFUsingImage')
 async def GetPDFUsingImage(input:GetPDfUsingImageInput): 
-       result= CommanService.ImageToPDf(input)
+       result= CommanService.ImageToDirectPDf(input)
        return result.__dict__
