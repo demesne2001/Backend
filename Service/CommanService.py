@@ -97,8 +97,8 @@ def ImageToPDf(input:GetPDfUsingImageInput):
                                 os.remove(BaseDirectory+ImageNA)
                     if(os.path.exists(BaseDirectory+FunResult.ImageName+'.jpg')):
                         os.remove(BaseDirectory+FunResult.ImageName+'.jpg')
-                    result.Message.append(PDFBaseDirectory+input.FileName+'.pdf')
-                    
+                    print(input.FileName+'.pdf')
+                    result.Message.append(input.FileName+'.pdf')                    
             elif(not os.path.exists(FunResult.ImageName+'.jpg')):
                 print('Not exists')
                 print(BaseDirectory+FunResult.ImageName)
