@@ -2,12 +2,11 @@ from Entity.DTO.WsInput import FilterInput,GetPDfUsingImageInput
 from Entity.DTO.WsResponse import SubCategoryResult,FilterResult,ImageRsult
 from DAL import CommanSQL
 import os
-import base64
 import cv2 
 from fpdf import FPDF
 import numpy as np
-from PIL import Image
-import img2pdf
+# from PIL import Image
+# import img2pdf
 
 BaseDirectory="Utility/Image/"
 PDFBaseDirectory="Utility/PDF/"
