@@ -28,7 +28,7 @@ else:
     os.makedirs(PDFPath)
 
 app.mount("/image", StaticFiles(directory="Utility/Image"), name="image")
-# app.mount("/PDF", StaticFiles(directory="Utility/PDF"), name="PDF")
+app.mount("/PDF", StaticFiles(directory="Utility/PDF"), name="PDF")
 @app.post("/Demo")
 def Demo():
     return{"msg":"Welcome to Fast"}
