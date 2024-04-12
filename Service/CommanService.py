@@ -5,8 +5,8 @@ import os
 import cv2 
 from fpdf import FPDF
 import numpy as np
-# from PIL import Image
-# import img2pdf
+from PIL import Image
+import img2pdf
 
 BaseDirectory="Utility/Image/"
 PDFBaseDirectory="Utility/PDF/"
@@ -79,18 +79,18 @@ def ImageToPDf(input:GetPDfUsingImageInput):
                 raise FunResult.Message
             elif(os.path.exists(BaseDirectory+FunResult.ImageName+'.jpg')):
                 print('Condtion true')
-                pdf = FPDF()
-                pdf.add_page()
-                pdf.image(BaseDirectory+FunResult.ImageName+'.jpg')
-                print(pdf)
-                pdf.output(PDFBaseDirectory+input.FileName+'.PDF',"F")
+                # pdf = FPDF()
+                # pdf.add_page()
+                # pdf.image(BaseDirectory+FunResult.ImageName+'.jpg')
+                # print(pdf)
+                # pdf.output(PDFBaseDirectory+input.FileName+'.PDF',"F")
                 # Working One More Option below
-                # image = Image.open(BaseDirectory+FunResult.ImageName+'.jpg')
-                # pdf_bytes = img2pdf.convert(image.filename)                
-                # file = open(PDFBaseDirectory+input.FileName+'.pdf', "wb")                
-                # file.write(pdf_bytes)                
-                # image.close()                
-                # file.close()                
+                image = Image.open(BaseDirectory+FunResult.ImageName+'.jpg')
+                pdf_bytes = img2pdf.convert(image.filename)                
+                file = open(PDFBaseDirectory+input.FileName+'.pdf', "wb")                
+                file.write(pdf_bytes)                
+                image.close()                
+                file.close()                
                 if(os.path.exists(PDFBaseDirectory+input.FileName+'.pdf')):
                     for ImageNA in input.ImageLst:
                           if(os.path.exists(BaseDirectory+ImageNA)): 
