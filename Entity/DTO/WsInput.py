@@ -51,6 +51,11 @@ class UploadFile(BaseModel):
 class DeleteFile(BaseModel):
     FileName:str
     
+class GetPDfUsingImageInput(BaseModel):
+    ImageLst:list
+    FileName:str
+    
+    
 class GetByID(BaseModel):
     ID:int
 

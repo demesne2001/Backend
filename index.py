@@ -7,7 +7,9 @@ from fastapi.staticfiles import StaticFiles
 import os
 
 app=FastAPI()
+
 path="Utility/Image"
+PDFPath="Utility/PDF"
 app.include_router(authenticationController.authentication,prefix='')
 app.include_router(Filtercontroller.Filter,prefix='/Filter')
 app.include_router(CardController.Card,prefix='/Card')
@@ -19,8 +21,14 @@ if(os.path.exists(path)):
     pass
 else:
     os.makedirs(path)
+    
+if(os.path.exists(PDFPath)):
+    pass
+else:
+    os.makedirs(PDFPath)
 
 app.mount("/image", StaticFiles(directory="Utility/Image"), name="image")
+app.mount("/PDF", StaticFiles(directory="Utility/PDF"), name="PDF")
 @app.post("/Demo")
 def Demo():
     return{"msg":"Welcome to Fast"}

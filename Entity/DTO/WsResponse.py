@@ -30,4 +30,8 @@ class SubCategoryResult(CommonInput):
         self.lstresult=[]
         self.FromDate=""
         self.ToDate=""
-    
+
+class ImageRsult(CommonInput):
+    def __init__(self):
+        super().__init__()
+        self.ImageName:str
