@@ -40,6 +40,6 @@ RUN ls -l
 
 
 
-EXPOSE 72202
+EXPOSE 42202
 
-CMD uvicorn index:app --host 0.0.0.0 --port 72202
+CMD uvicorn index:app --host 0.0.0.0 --port 42202
